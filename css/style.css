@@ -119,6 +119,20 @@ body {
   margin-right: 0.5rem;
 }
 
+#btn-shopping-cart {
+  position: relative;
+}
+.bedge-cart {
+  background-color: rgba(255, 0, 0, 0.925);
+  border-radius: 40%;
+  font-size: 0.8rem;
+  padding-block: 2px;
+  padding-inline: 4px;
+  position: absolute;
+  top: -15px;
+  left: 45%;
+}
+
 /* Cart Form */
 .navbar .cart-form {
   position: absolute;
@@ -139,33 +153,121 @@ body {
 .navbar .cart-form .cart-item {
   display: flex;
   border-bottom: 1px solid #000;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   margin: 1rem 0;
   align-items: center;
   position: relative;
 }
 
 .cart-form .cart-item img {
-  height: 6rem;
+  height: 5rem;
   padding: 0 1rem;
 }
 
 .cart-form .cart-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  padding: 0 10px;
 }
 
-.cart-form .cart-item p {
-  font-size: 1.5rem;
+.cart-form .cart-item .item-price {
+  font-size: 1.1rem;
+  margin: 5px 0;
 }
 
-.cart-form .remove-item {
-  position: absolute;
-  right: 1rem;
+.cart-form .cart-item .item-price span {
+  padding: 0 10px;
 }
 
-.cart-form .remove-item:hover {
-  color: red;
+.cart-form .item-detail .item-price #remove,
+.cart-form .item-detail .item-price #plus {
+  display: inline-block;
   cursor: pointer;
+  padding: 0 5px;
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+.cart-form .cart-empty {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50%;
+  color: #000;
+  text-decoration: none;
+}
+
+.cart-form .cart-empty h4 {
+  font-size: 2rem;
+  margin-block: 1rem;
+  text-align: center;
+}
+
+.cart-form .cart-empty a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.3rem;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+
+.cart-form h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* form checkout */
+.form-checkout {
+  display: flex;
+  justify-content: center;
+  border-top: 2px dashed black;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.form-checkout form {
+  width: 100%;
+  text-align: center;
+}
+
+.form-checkout h5 {
+  text-align: center;
+  font-size: 1.8rem;
+  /* margin-bottom: 1rem; */
+}
+
+.form-checkout .input-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-checkout label {
+  text-align: left;
+}
+
+.form-checkout input,
+.form-checkout textarea {
+  background-color: black;
+  color: #fff;
+  border: 2px solid var(--primary);
+  padding: 10px;
+  width: 70%;
+  font-size: 1rem;
+}
+
+.form-checkout button {
+  background-color: #b37435;
+  color: white;
+  font-weight: bold;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.form-checkout button:hover {
+  background-color: #b6895b;
+  color: #000;
 }
 
 /* hero section */
