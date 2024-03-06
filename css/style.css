@@ -257,17 +257,23 @@ body {
   font-size: 1rem;
 }
 
-.form-checkout button {
+.form-checkout .checkout-button {
   background-color: #b37435;
   color: white;
   font-weight: bold;
-  padding: 6px 10px;
+  padding: 6px 12px;
   cursor: pointer;
 }
 
-.form-checkout button:hover {
+.form-checkout .checkout-button:hover {
   background-color: #b6895b;
   color: #000;
+}
+
+.form-checkout .checkout-button.disabled {
+  background: #969696;
+  cursor: not-allowed;
+  color: white;
 }
 
 /* hero section */

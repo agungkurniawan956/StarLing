@@ -70,6 +70,53 @@ document.addEventListener('alpine:init', () => {
   });
 });
 
+// form validation
+const btnCheckout = document.querySelector('.checkout-button');
+btnCheckout.disabled = true;
+
+const form = document.querySelector('#checkout-form');
+
+form.addEventListener('keyup', function () {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].value.length !== 0) {
+      btnCheckout.classList.remove('disabled');
+      btnCheckout.classList.add('disabled');
+    } else {
+      return false;
+    }
+  }
+  btnCheckout.disabled = false;
+  btnCheckout.classList.remove('disabled');
+});
+
+// kirim data ketika tombol di klik
+btnCheckout.addEventListener('click', function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+  const objData = Object.fromEntries(data);
+  const message = formatMessage(objData);
+  window.open('http://wa.me/6281281687802?text=' + encodeURIComponent(message));
+});
+
+// format pesan whatsapp
+const formatMessage = (obj) => {
+  return `Data Pesanan
+  Nama: ${obj.nama}
+  Email: ${obj.email}
+  No Tlp: ${obj.phone}
+  Alamat : ${obj.alamat}
+Data Item
+  ${JSON.parse(obj.items).map(
+    (item) =>
+      `${item.name} (${item.quantity} X ${rupiah(item.price)}) = ${rupiah(
+        item.total
+      )} \n`
+  )}
+  TOTAL: ${rupiah(obj.total)}
+  Teriam Kasih, Sudah Berbelanja di Kami.`;
+};
+
 // konversi ke rupiah
 const rupiah = (number) => {
   return new Intl.NumberFormat('id-ID', {

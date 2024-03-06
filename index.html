@@ -24,7 +24,7 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
     <title>StarLing</title>
   </head>
   <body>
@@ -93,6 +93,12 @@
         <div class="form-checkout" x-show="$store.cart.items.length">
           <form action="" id="checkout-form">
             <h5>Form Checkout</h5>
+            <input
+              type="hidden"
+              name="items"
+              x-model="JSON.stringify($store.cart.items)"
+            />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
             <div class="input-form">
               <label for="name">Nama</label>
               <input type="text" name="name" id="name" />
@@ -107,11 +113,14 @@
             </div>
             <div class="input-form">
               <label for="alamat">Alamat</label>
-              <textarea name="alamat" id="alamat" cols="30" rows="3">
-              </textarea>
+              <textarea name="alamat" id="alamat"></textarea>
             </div>
 
-            <button type="submit" id="checkout-button" value="checkout">
+            <button
+              type="submit"
+              class="checkout-button disabled"
+              value="checkout"
+            >
               Checkout
             </button>
           </form>
